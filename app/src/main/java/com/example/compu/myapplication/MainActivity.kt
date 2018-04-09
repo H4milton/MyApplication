@@ -20,6 +20,7 @@ class MainActivity : AppCompatActivity(), TextWatcher, View.OnClickListener, Com
     private var radioF : RadioButton? = null
     private var name: String? = null
     private var age = ""
+    private var mensaje = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,7 +43,7 @@ class MainActivity : AppCompatActivity(), TextWatcher, View.OnClickListener, Com
 
         editName!!.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_FLAG_CAP_CHARACTERS
 
-        //operacion()
+        operacion()
 
     }//FIN ON CREATE
 
@@ -79,7 +80,22 @@ class MainActivity : AppCompatActivity(), TextWatcher, View.OnClickListener, Com
 
     //MIS FUNCIONES CREADAS
     private fun operacion(){
-        name = editName?.text.toString()
+        var valor = "Kotlin"
+
+        //Estructura Uno para When
+        when (valor){                           //Si variable valor es igual a
+            "Kotlin"->  mensaje = valor        // es igual a kotlin se muentras se muentra es tmensaje
+            "Java"  ->  mensaje = valor
+        }
+
+        //Estructura dos para When
+        when{
+            1 > 0 ->    mensaje="mensaje uno"
+            1 < 0 ->    mensaje="mensaje dos"
+            else  ->    mensaje="no es correcto"
+        }
+
+        /*name = editName?.text.toString()
         age = editAge?.text.toString()
 
         if (name?.equals("")?: ("" ==null)){ //name es igual a nulo, es nullo si.
@@ -91,7 +107,7 @@ class MainActivity : AppCompatActivity(), TextWatcher, View.OnClickListener, Com
             }else  {
                 textVAge?.text = age
             }
-        }
+        }*/
     }
 
 }
