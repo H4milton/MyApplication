@@ -40,7 +40,8 @@ class MainActivity : AppCompatActivity(), TextWatcher, View.OnClickListener, Com
         editAge!!.addTextChangedListener(this)
         editName!!.addTextChangedListener(this)
 
-        /*radioM!!.setOnCheckedChangeListener(this)
+        /* Deshabilitado C19
+        radioM!!.setOnCheckedChangeListener(this)
         radioF!!.setOnCheckedChangeListener(this)
         */
 
@@ -95,7 +96,13 @@ class MainActivity : AppCompatActivity(), TextWatcher, View.OnClickListener, Com
 
     //MIS FUNCIONES CREADAS
     private fun operacion(){
-        name = editName?.text.toString()
+
+        var miarrayInt = IntArray(10)
+
+        var ArrayString = arrayOf("Hamilton","Bac") //Devuelve in tipo de datos, conforme a lo ingresado dentro del parentesis
+        ArrayString[1]
+        
+        /*name = editName?.text.toString()
         age = editAge?.text.toString()
 
         if (name?.equals("")?: ("" ==null)){ //name es igual a nulo, es nullo si.
@@ -107,7 +114,7 @@ class MainActivity : AppCompatActivity(), TextWatcher, View.OnClickListener, Com
             }else  {
                 textVAge?.text = age
             }
-        }
+        }*/
     }
 
 }
