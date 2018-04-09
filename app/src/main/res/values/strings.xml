@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">Prueba De Desarrollo</string>
+    <string name="app_Name">Nombre Completo</string>
+    <string name="app_Age">Edad</string>
+    <string name="app_Button">Ejecutar</string>
+</resources>
