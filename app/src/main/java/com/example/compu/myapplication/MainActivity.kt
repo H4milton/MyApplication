@@ -1,5 +1,6 @@
 package com.example.compu.myapplication
 
+import android.app.ProgressDialog.show
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
@@ -38,19 +39,28 @@ class MainActivity : AppCompatActivity(), TextWatcher, View.OnClickListener, Com
         BEjecutar!!.setOnClickListener(this)
         editAge!!.addTextChangedListener(this)
         editName!!.addTextChangedListener(this)
-        radioM!!.setOnCheckedChangeListener(this)
+
+        /*radioM!!.setOnCheckedChangeListener(this)
         radioF!!.setOnCheckedChangeListener(this)
+        */
 
+        //Usar Button para llamar onclick
+        radioM!!.setOnClickListener(this)
+        radioF!!.setOnClickListener(this)
+
+        //Permite hacer que nuestro teclado ingrese la primera palabra en mayuscula
         editName!!.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_FLAG_CAP_CHARACTERS
-
-        operacion()
 
     }//FIN ON CREATE
 
 
     //FUNCIONE RADIO BUTTON
     override fun onCheckedChanged(buttonView: CompoundButton?, isChecked: Boolean) { //setOnCheckedChangeListener es su creador
-        Toast.makeText(this,"Ha seleccionado una opcion", Toast.LENGTH_LONG).show()
+
+        when(buttonView!!.id){  //Cuando el id de radioButton, sus id estan identificados con numeros.
+            R.id.rButtonM ->    if(isChecked)Toast.makeText(this,"Ha seleccionado Masculino", Toast.LENGTH_LONG).show()
+            R.id.rButtonF ->    if(isChecked)Toast.makeText(this,"Ha seleccionado Femenino", Toast.LENGTH_LONG).show()
+        }
     }
 
     //LISTENER TEXTVIEW
@@ -74,28 +84,18 @@ class MainActivity : AppCompatActivity(), TextWatcher, View.OnClickListener, Com
     }
 
     //ONLICK BOTON EJECUTAR
-    override fun onClick(v: View?) {
-        operacion()
+    override fun onClick(v: View?) {        // V= Identificador de los objetos que estan solicitando la funcion onClick
+        when(v!!.id){   //Valuamos segun id de nuestros objetos
+            R.id.Button_Ejecutar    -> operacion()
+            R.id.rButtonM ->   Toast.makeText(this,"Ha seleccionado Masculino", Toast.LENGTH_LONG).show()
+            R.id.rButtonF ->   Toast.makeText(this,"Ha seleccionado Femenino", Toast.LENGTH_LONG).show()
+        }
+
     }
 
     //MIS FUNCIONES CREADAS
     private fun operacion(){
-        var valor = "Kotlin"
-
-        //Estructura Uno para When
-        when (valor){                           //Si variable valor es igual a
-            "Kotlin"->  mensaje = valor        // es igual a kotlin se muentras se muentra es tmensaje
-            "Java"  ->  mensaje = valor
-        }
-
-        //Estructura dos para When
-        when{
-            1 > 0 ->    mensaje="mensaje uno"
-            1 < 0 ->    mensaje="mensaje dos"
-            else  ->    mensaje="no es correcto"
-        }
-
-        /*name = editName?.text.toString()
+        name = editName?.text.toString()
         age = editAge?.text.toString()
 
         if (name?.equals("")?: ("" ==null)){ //name es igual a nulo, es nullo si.
@@ -107,7 +107,7 @@ class MainActivity : AppCompatActivity(), TextWatcher, View.OnClickListener, Com
             }else  {
                 textVAge?.text = age
             }
-        }*/
+        }
     }
 
 }
