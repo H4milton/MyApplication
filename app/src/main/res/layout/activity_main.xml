@@ -40,7 +40,7 @@
                 android:layout_width="40dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="TextView"
+                android:text="@string/app_Name"
                 tools:text="@string/app_Name" />
 
             <TextView
@@ -62,7 +62,7 @@
                 android:layout_width="40dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="TextView"
+                android:text="@string/app_Age"
                 tools:text="@string/app_Age" />
 
             <TextView
@@ -72,6 +72,26 @@
                 android:layout_weight="1" />
 
         </LinearLayout>
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/rButtonM"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/app_rButtonM" />
+
+            <RadioButton
+                android:id="@+id/rButtonF"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/app_rButtonF" />
+        </RadioGroup>
 
         <Button
             android:id="@+id/Button_Ejecutar"

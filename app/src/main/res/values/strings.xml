@@ -3,4 +3,6 @@
     <string name="app_Name">Nombre Completo</string>
     <string name="app_Age">Edad</string>
     <string name="app_Button">Ejecutar</string>
+    <string name="app_rButtonF">Femenino</string>
+    <string name="app_rButtonM">Masculino</string>
 </resources>

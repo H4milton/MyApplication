@@ -6,18 +6,18 @@ import android.text.Editable
 import android.text.InputType
 import android.text.TextWatcher
 import android.view.View
-import android.widget.Button
-import android.widget.EditText
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 
-class MainActivity : AppCompatActivity(), TextWatcher, View.OnClickListener {
+class MainActivity : AppCompatActivity(), TextWatcher, View.OnClickListener, CompoundButton.OnCheckedChangeListener {
+
+
     private var editName: EditText? = null
     private var editAge: EditText? = null
     private var textVName: TextView? = null
     private var textVAge: TextView? = null
     private var BEjecutar: Button? = null
-
+    private var radioM : RadioButton? = null
+    private var radioF : RadioButton? = null
     private var name: String? = null
     private var age = ""
 
@@ -31,16 +31,26 @@ class MainActivity : AppCompatActivity(), TextWatcher, View.OnClickListener {
         textVAge = findViewById(R.id.textView_Age) as TextView
         textVName = findViewById(R.id.textView_Name) as TextView
         BEjecutar = findViewById(R.id.Button_Ejecutar) as Button
+        radioF = findViewById(R.id.rButtonF) as RadioButton
+        radioM = findViewById(R.id.rButtonM) as RadioButton
 
         BEjecutar!!.setOnClickListener(this)
         editAge!!.addTextChangedListener(this)
         editName!!.addTextChangedListener(this)
+        radioM!!.setOnCheckedChangeListener(this)
+        radioF!!.setOnCheckedChangeListener(this)
 
         editName!!.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_FLAG_CAP_CHARACTERS
 
         //operacion()
 
     }//FIN ON CREATE
+
+
+    //FUNCIONE RADIO BUTTON
+    override fun onCheckedChanged(buttonView: CompoundButton?, isChecked: Boolean) { //setOnCheckedChangeListener es su creador
+        Toast.makeText(this,"Ha seleccionado una opcion", Toast.LENGTH_LONG).show()
+    }
 
     //LISTENER TEXTVIEW
     override fun afterTextChanged(s: Editable?) {    }
